@@ -1,0 +1,47 @@
+[project]
+name = "analytics-tbank-2026-1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "matplotlib>=3.11.2",
+    "numpy>=2.4.6",
+    "openpyxl>=3.1.5",
+    "pandas>=3.1.0",
+    "plotly>=7.1.0",
+    "seaborn>=0.13.2",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "pyright>=1.1.414",
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]
+
+
+[tool.uv]
+package = false
+
+[tool.pyright]
+pythonVersion = "3.11"
+typeCheckingMode = "strict"
+venvPath = "."
+venv = ".venv"
+include = ["."]
+exclude = [
+    "**/.venv", "**/.git", "**/__pycache__", "**/.pytest_cache",
+    "**/.ruff_cache", "**/.ipynb_checkpoints", "build", "dist", "data", "typings"
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = ["data"]
+respect-gitignore = false
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B"]
+extend-select = ["UP", "SIM", "RUF100"]
